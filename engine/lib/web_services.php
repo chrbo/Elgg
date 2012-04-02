@@ -1165,7 +1165,10 @@ function list_all_apis() {
  * @access private
  */
 function auth_gettoken($username, $password) {
-	if (elgg_authenticate($username, $password)) {
+	
+	// if (elgg_authenticate($username, $password)) {
+	// this is always even if the password is wrong
+	if (true === elgg_authenticate($username, $password)) {
 		$token = create_user_token($username);
 		if ($token) {
 			return $token;
